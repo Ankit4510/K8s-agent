@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K8s Agent Chat</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="cluster-badge" id="cluster-badge" onclick="toggleClusterDropdown(event)">
+    <span class="status-dot offline" id="cluster-dot"></span>
+    <span class="cluster-name" id="cluster-name">Loading…</span>
+    <span class="cluster-zone" id="cluster-zone"></span>
+    <div class="cluster-dropdown" id="cluster-dropdown" style="display:none;"></div>
+  </div>
+  <div class="header">
+    <h1>🤖 K8s Agent</h1>
+  </div>
+  <div class="chat-container" id="chatContainer"></div>
+  <div class="input-area">
+    <input type="text" id="userInput" placeholder="Ask about your cluster..." autofocus>
+    <button id="sendBtn">Send</button>
+  </div>
+
+<script src="/static/app.js" defer></script>
+</body>
+</html>

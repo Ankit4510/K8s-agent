@@ -1,0 +1,19 @@
+{
+  "apiVersion": "v1",
+  "kind": "PersistentVolumeClaim",
+  "metadata": {
+    "name": "my-data-pvc",
+    "namespace": "default",
+    "creationTimestamp": "2026-05-18T08:00:00Z"
+  },
+  "spec": {
+    "accessModes": ["ReadWriteOnce"],
+    "resources": {
+      "requests": {"storage": "10Gi"}
+    },
+    "storageClassName": "standard"
+  },
+  "status": {
+    "phase": "Pending"
+  }
+}

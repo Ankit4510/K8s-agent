@@ -1,0 +1,50 @@
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "stuck",
+    "namespace": "default",
+    "creationTimestamp": "2026-05-18T09:00:00Z"
+  },
+  "spec": {
+    "containers": [
+      {
+        "name": "app",
+        "image": "nginx:latest",
+        "volumeMounts": [
+          {"name": "data", "mountPath": "/data"}
+        ]
+      }
+    ],
+    "volumes": [
+      {
+        "name": "data",
+        "persistentVolumeClaim": {"claimName": "my-data-pvc"}
+      }
+    ]
+  },
+  "status": {
+    "phase": "Pending",
+    "conditions": [
+      {
+        "type": "PodScheduled",
+        "status": "False",
+        "reason": "Unschedulable",
+        "message": "0/3 nodes available: pod has unbound immediate PersistentVolumeClaims."
+      }
+    ],
+    "containerStatuses": [
+      {
+        "name": "app",
+        "ready": false,
+        "restartCount": 0,
+        "state": {
+          "waiting": {
+            "reason": "ContainerCreating",
+            "message": ""
+          }
+        }
+      }
+    ]
+  }
+}

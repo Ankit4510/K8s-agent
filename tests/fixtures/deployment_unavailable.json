@@ -1,0 +1,35 @@
+{
+  "apiVersion": "apps/v1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "web-frontend",
+    "namespace": "default",
+    "creationTimestamp": "2026-05-18T08:00:00Z"
+  },
+  "spec": {
+    "replicas": 2,
+    "selector": {"matchLabels": {"app": "web"}},
+    "template": {
+      "metadata": {"labels": {"app": "web"}},
+      "spec": {
+        "containers": [
+          {"name": "nginx", "image": "nginx:latest"}
+        ]
+      }
+    }
+  },
+  "status": {
+    "replicas": 2,
+    "availableReplicas": 0,
+    "readyReplicas": 0,
+    "unavailableReplicas": 2,
+    "conditions": [
+      {
+        "type": "Available",
+        "status": "False",
+        "reason": "MinimumReplicasUnavailable",
+        "message": "Deployment does not have minimum availability."
+      }
+    ]
+  }
+}

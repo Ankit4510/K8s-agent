@@ -1,0 +1,30 @@
+{
+  "apiVersion": "v1",
+  "kind": "EventList",
+  "items": [
+    {
+      "type": "Warning",
+      "reason": "Failed",
+      "message": "Error: ImagePullBackOff for container \"app\", back-off pulling image \"myregistry.io/app:latest\"",
+      "lastTimestamp": "2026-05-18T10:05:00Z",
+      "count": 3,
+      "involvedObject": {
+        "kind": "Pod",
+        "name": "broken-pod",
+        "namespace": "default"
+      }
+    },
+    {
+      "type": "Normal",
+      "reason": "BackOff",
+      "message": "Back-off pulling image \"myregistry.io/app:latest\"",
+      "lastTimestamp": "2026-05-18T10:03:00Z",
+      "count": 5,
+      "involvedObject": {
+        "kind": "Pod",
+        "name": "broken-pod",
+        "namespace": "default"
+      }
+    }
+  ]
+}

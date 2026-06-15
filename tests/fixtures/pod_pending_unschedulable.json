@@ -1,0 +1,46 @@
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "alertmanager-0",
+    "namespace": "default",
+    "creationTimestamp": "2026-05-18T12:00:00Z"
+  },
+  "spec": {
+    "containers": [
+      {
+        "name": "alertmanager",
+        "image": "prom/alertmanager:v0.25.0"
+      }
+    ],
+    "volumes": null,
+    "nodeName": ""
+  },
+  "status": {
+    "phase": "Pending",
+    "reason": "Unschedulable",
+    "message": "0/4 nodes are available: 1 Insufficient memory, 3 node(s) had taint {node.kubernetes.io/disk-pressure: }, that the pod didn't tolerate.",
+    "conditions": [
+      {
+        "type": "PodScheduled",
+        "status": "False",
+        "reason": "Unschedulable",
+        "message": "0/4 nodes are available: 1 Insufficient memory, 3 node(s) had taint {node.kubernetes.io/disk-pressure: }, that the pod didn't tolerate.",
+        "lastTransitionTime": "2026-05-18T12:00:00Z"
+      }
+    ],
+    "containerStatuses": [
+      {
+        "name": "alertmanager",
+        "ready": false,
+        "restartCount": 0,
+        "state": {
+          "waiting": {
+            "reason": "ContainerCreating",
+            "message": ""
+          }
+        }
+      }
+    ]
+  }
+}
