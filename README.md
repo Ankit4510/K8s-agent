@@ -25,7 +25,7 @@ A natural language interface for managing Kubernetes clusters. Ask questions in 
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Ankit4510/K8s-agent.git
 cd agents
 ```
 
