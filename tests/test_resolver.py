@@ -41,7 +41,7 @@ class TestResolverPrefixMatching:
         mock_kubectl.return_value = '{"items": []}'
 
         res = Resolver.resolve_workload("order", namespace="default")
-        # Should attempt both "order" and "com-manh-cp-order"
+        # Should attempt both "order" and "app-order"
         assert res["status"] in ("not_found", "exact", "suggestions")
 
     @patch("skills.resolver.kubectl_cmd")
@@ -49,7 +49,7 @@ class TestResolverPrefixMatching:
         mock_kubectl.return_value = '{"items": []}'
 
         # Query with prefix already in it
-        res = Resolver.resolve_workload("com-manh-cp-order", namespace="default")
+        res = Resolver.resolve_workload("app-order", namespace="default")
         assert res["status"] in ("not_found", "exact", "suggestions")
 
 

@@ -3,7 +3,7 @@ ListSkill — lists Kubernetes resources with intelligent matching.
 
 Key features:
   - Auto-detect kind when kind=null (iterates pod -> deployment -> statefulset -> daemonset -> pvc -> service)
-  - Prefix-aware name matching: strips/prepends com-manh-cp- and all-com-manh-cp- prefixes
+  - Prefix-aware name matching: strips/prepends app- and all-app- prefixes
   - First-char guard: fuzzy matching only when query[0] == name[0]
   - REST keyword detection: "rest", "rest component", "rest container", "rest stereotype"
   - Running-pods filter: only Running/Pending pods shown
@@ -28,7 +28,7 @@ WORKLOAD_KINDS = ["deployment", "statefulset", "daemonset"]
 ALL_KINDS_PRIORITY = ["pod", "deployment", "statefulset", "daemonset", "pvc", "service"]
 FUZZY_THRESHOLD = 0.40
 
-PREFIXES = ["all-com-manh-cp-", "com-manh-cp-"]
+PREFIXES = ["all-app-", "app-"]
 RUNNING_PHASES = {"Running", "Pending"}
 _REST_PATTERN = re.compile(r'\brest\b(?:\s+(?:component|container|stereotype))?', re.IGNORECASE)
 

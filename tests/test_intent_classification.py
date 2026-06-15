@@ -103,18 +103,18 @@ class TestIntentRulesConsistency:
         intent = {
             "mode": "skill",
             "skill": "describe",
-            "name": "com-manh-cp-order",
+            "name": "app-order",
             "kind": None,
             "namespace": None,
             "field": "status",
-            "cluster_name": "mtstackom3",
+            "cluster_name": "my-cluster",
             "zone": None,
             "project": None,
             "action": None,
             "explicit_pod": False,
             "name_filter": None,
         }
-        assert intent["cluster_name"] == "mtstackom3"
+        assert intent["cluster_name"] == "my-cluster"
 
     def test_list_pods(self):
         intent = {
@@ -211,14 +211,14 @@ class TestIntentRulesConsistency:
             "kind": None,
             "namespace": None,
             "field": None,
-            "cluster_name": "mtstackom3",
+            "cluster_name": "my-cluster",
             "zone": None,
             "project": None,
             "action": None,
             "explicit_pod": False,
             "name_filter": None,
         }
-        assert intent["cluster_name"] == "mtstackom3"
+        assert intent["cluster_name"] == "my-cluster"
 
     def test_cluster_switch(self):
         intent = {

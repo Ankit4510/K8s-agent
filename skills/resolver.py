@@ -20,8 +20,8 @@ _CACHE_TTL = 30  # seconds
 FUZZY_THRESHOLD = 0.75
 
 COMMON_SUFFIXES = [" rest component", " rest container", " component", " container", " service", " rest"]
-PREFIXES = ["all-com-manh-cp-", "com-manh-cp-"]
-MANH_PREFIX_ALIASES = ["component-", "comp-", "manh-"]
+PREFIXES = ["all-app-", "app-"]
+APP_PREFIX_ALIASES = ["component-", "comp-"]
 
 
 def _strip_suffixes(name: str) -> str:
@@ -119,19 +119,19 @@ class Resolver:
         if stripped != name:
             names_to_try = [name, stripped]
 
-        # Expand Manhattan prefix aliases:
-        # "component-order" or "comp-order" → also try "order" and "com-manh-cp-order"
+        # Expand app prefix aliases:
+        # "component-order" or "comp-order" → also try "order" and "app-order"
         extra = []
         for variant in list(names_to_try):
             lowered = variant.lower()
-            for alias in MANH_PREFIX_ALIASES:
+            for alias in APP_PREFIX_ALIASES:
                 if lowered.startswith(alias):
                     short = variant[len(alias):]
                     if short not in names_to_try:
                         extra.append(short)
-                    manh = "com-manh-cp-" + short
-                    if manh not in names_to_try:
-                        extra.append(manh)
+                    app = "app-" + short
+                    if app not in names_to_try:
+                        extra.append(app)
                     break
         names_to_try = names_to_try + extra
 

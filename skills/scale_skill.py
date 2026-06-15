@@ -13,7 +13,7 @@ class ScaleSkill(Skill):
     name = "scale"
     version = "1.0.0"
     triggers = ["scale", "scale up", "scale down", "set replicas", "replicas"]
-    description = "Scale a deployment or statefulset to a given number of replicas. Fuzzy-matches name and auto-expands Manhattan prefixes."
+    description = "Scale a deployment or statefulset to a given number of replicas. Fuzzy-matches name and auto-expands app prefixes."
 
     AUTO_PROCEED_SCORE = 0.90
 
